@@ -190,7 +190,7 @@ const LeadLobby = () => {
         }
         
         .btn-primary {
-          background: #0077FF;
+          background:  #6366F1;
           color: white;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -201,7 +201,7 @@ const LeadLobby = () => {
           box-shadow: 0 8px 16px rgba(0,119,255,0.3);
         }
         
-        .btn-primary:active {
+        .btn-primary:active { 
           transform: translateY(0);
         }
         
@@ -235,14 +235,14 @@ const LeadLobby = () => {
         .stat-number {
           font-size: 3rem;
           font-weight: 800;
-          background: linear-gradient(135deg, #0077FF 0%, #0099FF 100%);
+          background: linear-gradient(135deg,  #6366F1 0%,#8B5CF6 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         
         .gradient-text {
-          background: linear-gradient(135deg, #0077FF 0%, #0099FF 100%);
+          background: linear-gradient(135deg,  #6366F1 0%,#8B5CF6 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -255,7 +255,7 @@ const LeadLobby = () => {
         
         input:focus, textarea:focus {
           outline: none;
-          border-color: #0077FF;
+          border-color:  #6366F1;
           box-shadow: 0 0 0 3px rgba(0,119,255,0.1);
         }
         
@@ -284,7 +284,7 @@ const LeadLobby = () => {
         <div className="glass px-6 py-4 flex items-center justify-between">
           <button 
             onClick={() => setCurrentPage('home')}
-            className="text-xl font-bold tracking-tight focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-2 py-1 transition-colors hover:text-blue-600"
+            className="text-xl font-bold tracking-tight focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-2 py-1 transition-colors hover:text-blue-600"
             aria-label="Lead Lobby home"
           >
             Lead Lobby
@@ -295,7 +295,7 @@ const LeadLobby = () => {
               <button
                 key={page}
                 onClick={() => setCurrentPage(page.toLowerCase())}
-                className={`text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-3 py-2 ${
+                className={`text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-3 py-2 ${
                   currentPage === page.toLowerCase() ? 'text-blue-600 bg-blue-50' : 'text-black hover:text-blue-600'
                 }`}
                 aria-current={currentPage === page.toLowerCase() ? 'page' : undefined}
@@ -307,7 +307,7 @@ const LeadLobby = () => {
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded transition-colors hover:bg-gray-100"
+            className="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded transition-colors hover:bg-gray-100"
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
           >
@@ -343,7 +343,7 @@ const LeadLobby = () => {
                     setCurrentPage(page.toLowerCase());
                     setMenuOpen(false);
                   }}
-                  className={`text-lg font-medium text-left py-3 px-4 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  className={`text-lg font-medium text-left py-3 px-4 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-purple-500 ${
                     currentPage === page.toLowerCase() 
                       ? 'bg-blue-600 text-white' 
                       : 'text-black hover:bg-gray-100'
@@ -445,7 +445,25 @@ const HomePage = ({ setCurrentPage, visibleCards }) => {
           </div>
         </div>
       </section>
-
+{/* Client Logos Marquee */}
+<section className="py-16 px-4 bg-gray-50 overflow-hidden">
+  <div className="max-w-6xl mx-auto mb-8">
+    <p className="text-center text-gray-600 font-medium mb-8">
+      Trusted by leading companies worldwide
+    </p>
+  </div>
+  <div className="flex overflow-hidden">
+    <div className="flex animate-marquee gap-16">
+      {['Google', 'Microsoft', 'Amazon', 'Meta', 'Apple', 'Netflix', 'Tesla', 'Spotify'].map((company, i) => (
+        <div key={i} className="flex items-center justify-center min-w-[150px]">
+          <span className="text-2xl font-bold text-gray-400 hover:text-gray-600 transition-colors">
+            {company}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
       {/* Stats Section */}
       <section className="py-24 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
