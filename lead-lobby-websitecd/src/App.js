@@ -486,7 +486,50 @@ const HomePage = ({ setCurrentPage, visibleCards }) => {
           </div>
         </div>
       </section>
-
+{/* Testimonials Section */}
+<section className="py-24 px-4 bg-gray-50">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">What Clients Say</h2>
+    <p className="text-center text-gray-600 mb-16 text-lg">Real feedback from real clients</p>
+    
+    <div className="grid md:grid-cols-3 gap-8">
+      {[
+        {
+          name: 'Sarah Johnson',
+          role: 'CEO, TechStart',
+          text: 'Lead Lobby transformed our digital presence. The team delivered beyond expectations with exceptional attention to detail.',
+        },
+        {
+          name: 'Michael Chen',
+          role: 'Founder, GrowthCo',
+          text: 'Professional, responsive, and incredibly talented. They brought our vision to life and helped us scale rapidly.',
+        },
+        {
+          name: 'Emily Rodriguez',
+          role: 'CMO, InnovateLabs',
+          text: 'Outstanding work! The ROI we achieved through their digital marketing strategies exceeded all our projections.',
+        }
+      ].map((testimonial, i) => (
+        <div 
+          key={i}
+          className={`glass p-8 card-fade-up ${visibleCards.has(\`testimonial-\${i}\`) ? 'visible' : ''}`}
+          data-card-id={`testimonial-${i}`}
+        >
+          <div className="flex gap-1 mb-4">
+            {[...Array(5)].map((_, idx) => (
+              <span key={idx} className="text-yellow-400">★</span>
+            ))}
+          </div>
+          <p className="text-gray-700 mb-6 italic">"{testimonial.text}"</p>
+          <div>
+            <p className="font-bold text-lg">{testimonial.name}</p>
+            <p className="text-purple-600 text-sm">{testimonial.role}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
       {/* Value Props */}
       <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto">
